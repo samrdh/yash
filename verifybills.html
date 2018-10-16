@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Yash group | Goa | Business associates | Verify Bills</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Yash Group</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="verifybills.html"><i class="fa fa-fw fa-edit"></i> Verify Bills</a>
+                    </li>
+                    <li>
+                        <a href="redeem.html"><i class="fa fa-fw fa-table"></i> Redemption</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Customers</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Verify Bills
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                            <li class="active">
+                                    <i class="fa fa-edit"></i> Verify Bills
+                                </li>
+                        </ol>
+                    </div>
+                </div>
+
+
+                <!-- add new row here -->
+                <div class="row">
+                        <div class="col-lg-12">
+                                <div class="alert alert-info alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <i class="fa fa-info-circle"></i>  Please Verify the Bills on the <strong>SAME DAY,</strong> otherwise all bills that are <b class="alert-link">not verified will be automatically verified.</b>
+                                    </div>
+
+                                <!-- Editable table -->
+                                <div class="panel panel-default">
+                                  <h3 class="text-center font-weight-bold text-uppercase py-4">
+                                    Please verify the bills
+                                    <br>
+                                    <small><b>Date: </b>11/10/2018</small>
+                                  </h3>
+
+                                  <div class="panel-body">
+                                      <div class="table-responsive">
+                                      <table class="table table-bordered table-striped text-center">
+                                        <thead>
+                                        <tr>
+                                          <th class="text-center"></th>
+                                          <th class="text-center">Bill #</th>
+                                          <th class="text-center">Person Name</th>
+                                          <th class="text-center">Amount</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+
+                                          <td><input type="checkbox" name="sample[]"/></td>
+                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="bill no"></td>
+                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="customer name"></td>
+                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="amount"></td>
+
+
+                                        </tr>
+                                        <tr>
+                                          <td><input type="checkbox" name="sample[]"/></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="bill no"></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="customer name"></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="amount"></td>
+
+
+                                        </tr>
+                                        <tr>
+                                          <td><input type="checkbox" name="sample[]"/></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="bill no"></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="customer name"></td>
+                                          <td class="pt-3-half"><input  disabled='true' type="text" class="form-control" placeholder="amount"></td>
+
+
+                                        </tr>
+
+                                        <tr>
+                                          <td colspan="4" class="text-right">
+                                          <button class="btn btn-info editbtn">Edit</button>
+                                          <button class="btn btn-danger">Delete</button>
+                                          <button class="btn btn-success">Verify</button>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                      </table>
+
+                                    </div>
+
+                                  <ul class="pagination pull-right">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">>></a></li>
+                                  </ul>
+
+
+                                  </div>
+                                </div>
+                                <br>
+                                <!-- Editable table -->
+                        </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
