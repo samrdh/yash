@@ -16,8 +16,6 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -89,6 +87,9 @@
                     </li>
                     <li class="btns">
                         <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Customers</a>
+                    </li>
+                    <li>
+                    <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
                     </li>
                 </ul>
             </div>
