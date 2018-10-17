@@ -12,10 +12,10 @@ include("header.php");
                             Verify Bills
                         </h1>
                         <ol class="breadcrumb">
-                            <li class="active">
+                            <li class="">
                                 <i class="fa fa-dashboard"></i> Dashboard
                             </li>
-                            <li class="active">
+                            <li class="">
                                     <i class="fa fa-edit"></i> Verify Bills
                                 </li>
                         </ol>

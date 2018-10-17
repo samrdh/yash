@@ -19,10 +19,8 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <style>.actives, .btns:hover {
-    background-color: #666;
-    color: white;
-}</style>
+
+
 </head>
 
 <body>
@@ -75,36 +73,25 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div  id="actv" class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="btns actives">
+              <ul class="nav navbar-nav side-nav">
+                    <li class="btnns ">
                         <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li class="btns ">
+                    <li class="btnns ">
                         <a href="verifybills.php"><i class="fa fa-fw fa-edit"></i> Verify Bills</a>
                     </li>
-                    <li class="btns">
+                    <li class="btnns">
                         <a href="redeem.html"><i class="fa fa-fw fa-table"></i> Redemption</a>
                     </li>
-                    <li class="btns">
-                        <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Customers</a>
+                    <li class="btnns ">
+                        <a href="verifybills.php"><i class="fa fa-fw fa-bar-chart-o"></i> Customers</a>
                     </li>
-                    <li>
-                    <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
+                    <li class="btnns">
+                       <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
                     </li>
-                </ul>
+               </ul>
             </div>
 
-<script>
-// Add active class to the current button (highlight it)
-var header = document.getElementById("actv");
-var btns = header.getElementsByClassName("btns");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("actives");
-    current[0].className = current[0].className.replace(" actives", "");
-    this.className += " actives";
-  });
-}
-</script>
+
             <!-- /.navbar-collapse -->
         </nav>

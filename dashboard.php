@@ -12,7 +12,7 @@ include("header.php");
                 Dashboard <small>Overview</small>
             </h1>
             <ol class="breadcrumb">
-                <li class="active">
+                <li class="">
                     <i class="fa fa-dashboard"></i> Dashboard
                 </li>
             </ol>
