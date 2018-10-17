@@ -9,12 +9,16 @@ include("header.php");
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Dashboard <small>Overview</small>
+                Customer <small>Details</small>
             </h1>
             <ol class="breadcrumb">
-                <li class="">
+                <li>
                     <i class="fa fa-dashboard"></i> Dashboard
                 </li>
+                <li>
+                        <i class="fa fa-fw fa-users"></i> Customers
+                </li>
+
             </ol>
         </div>
     </div>
@@ -34,7 +38,7 @@ include("header.php");
                         </div>
                     </div>
                 </div>
-                <a href="customers.php">
+                <a href="#">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -56,7 +60,7 @@ include("header.php");
                         </div>
                     </div>
                 </div>
-                <a href="verifybills.php">
+                <a href="#">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -12,7 +12,7 @@ include("header.php");
                 Dashboard <small>Overview</small>
             </h1>
             <ol class="breadcrumb">
-                <li class="">
+                <li class="active">
                     <i class="fa fa-dashboard"></i> Dashboard
                 </li>
             </ol>
@@ -34,7 +34,7 @@ include("header.php");
                         </div>
                     </div>
                 </div>
-                <a href="customers.php">
+                <a href="#">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -56,7 +56,7 @@ include("header.php");
                         </div>
                     </div>
                 </div>
-                <a href="verifybills.php">
+                <a href="#">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

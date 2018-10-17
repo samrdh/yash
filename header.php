@@ -80,14 +80,17 @@
                     <li class="btnns ">
                         <a href="verifybills.php"><i class="fa fa-fw fa-edit"></i> Verify Bills</a>
                     </li>
-                    <li class="btnns">
-                        <a href="redeem.html"><i class="fa fa-fw fa-table"></i> Redemption</a>
+                    <li class="btns">
+                        <a href="redeem.php"><i class="fa fa-fw fa-table"></i> Redemption</a>
                     </li>
-                    <li class="btnns ">
-                        <a href="verifybills.php"><i class="fa fa-fw fa-bar-chart-o"></i> Customers</a>
+                    <li class="btns">
+                        <a href="customers.php"><i class="fa fa-fw fa-users"></i> Customers</a>
                     </li>
-                    <li class="btnns">
-                       <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
+                    <li class="btns">
+                        <a href="pointsettings.php"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-bug"></i> Previous code</a>
                     </li>
                </ul>
             </div>
