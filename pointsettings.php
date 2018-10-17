@@ -9,11 +9,14 @@ include("header.php");
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Dashboard <small>Overview</small>
+                Points <small>Setting</small>
             </h1>
             <ol class="breadcrumb">
-                <li class="active">
+                <li>
                     <i class="fa fa-dashboard"></i> Dashboard
+                </li>
+                <li>
+                        <i class="fa fa-fw fa-bar-chart-o"></i> Point settings
                 </li>
             </ol>
         </div>
