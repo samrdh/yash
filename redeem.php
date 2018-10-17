@@ -17,7 +17,7 @@ include("header.php");
                 </li>
                 <li class="active">
                         <i class="fa fa-fw fa-table"></i> Redemption
-                    </li>
+                </li>
             </ol>
         </div>
     </div>
