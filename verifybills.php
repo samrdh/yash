@@ -29,7 +29,7 @@ include("header.php");
                                 <div class="alert alert-info alert-dismissable">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <i class="fa fa-info-circle"></i>  Please Verify the Bills on the <strong>SAME DAY,</strong> otherwise all bills that are <b class="alert-link">not verified will be automatically verified.</b>
-                                    </div>
+                                </div>
 
                                 <!-- Editable table -->
                                 <div class="panel panel-default">
