@@ -1,5 +1,9 @@
 <?php
 include("header.php");
+include"conn.php";
+$conn = OpenConn();
+$result = mysqli_query($conn, "SELECT * FROM users");
+
 ?>
 <div id="page-wrapper">
 
