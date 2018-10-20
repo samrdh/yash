@@ -67,21 +67,22 @@ include("header.php");
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
                                           <td><button class="btn btn-success">Done</button></td>
                                         </tr>
-
-                                        <tr>
+                                        <tr > 
                                           <td class="pt-3-half">Bronze</td>
                                           <td class="pt-3-half">5</td>
                                           <td class="pt-3-half">0.5</td>
-                                          <td><button class="btn btn-info editbtn">Edit</button></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="pt-3-half">Bronze</td>
+                                          <td><button class="btn btn-info editbtn"  type="button" onclick="myFunction()">Edit</button></td>
+                                        </tr> 
+                                        <tr id="point">
+                                          <td class="pt-3-half" >Bronze</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button class="btn btn-success">Done</button></td>
+                                          <td><button class="btn btn-success" >Done</button></td>
                                         </tr>
+                                         
                                         </tbody>
                                       </table>
+                                                                      
                                     </div>
                                   </div>
                                 </div>
