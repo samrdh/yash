@@ -2,7 +2,16 @@
 include("header.php");
 include"conn.php";
 $conn = OpenConn();
-$result = mysqli_query($conn, "SELECT * FROM users");
+$sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AND `verified`=0';
+         $result = mysqli_query($conn, $sql);
+
+     /*     if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+               echo "Name: " . $row["type"]. "<br>";
+            }
+         } else {
+            echo "0 results";
+         } */
 
 ?>
 <div id="page-wrapper">
@@ -55,13 +64,21 @@ $result = mysqli_query($conn, "SELECT * FROM users");
                                         </tr>
                                       </thead>
                                       <tbody>
+                                      <?php
+                                      if (mysqli_num_rows($result) > 0) {
+                                      while($row = mysqli_fetch_assoc($result)) {
+                                     
+                                        ?>
                                         <tr>
 
-                                          <td><input type="checkbox" name="sample[]"/></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="bill no"></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="customer name"></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="amount"></td>
+                                          <td><input type="checkbox" /></td>
+                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["bill_no"]; ?>" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["cs_id"]; ?>" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["amt"]; ?>" type="text" class="form-control" ></td>
                                         </tr>
+                                        <?php
+                                      }}
+                                         ?>
                                         <tr>
                                           <td colspan="4" class="text-right">
                                           <button class="btn btn-success editbtn">Edit</button>
@@ -99,7 +116,6 @@ $result = mysqli_query($conn, "SELECT * FROM users");
 
     </div>
     <!-- /#wrapper -->
-    <?php
+<?php
 include("footer.php");
 ?>
-
