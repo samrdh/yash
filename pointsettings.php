@@ -46,38 +46,38 @@ include("header.php");
                                           <td class="pt-3-half">Gold</td>
                                           <td class="pt-3-half">12</td>
                                           <td class="pt-3-half">0.15</td>
-                                          <td><button type="button" class="btn btn-info" onclick="show1();">Edit</button></td>
+                                          <td><button type="button" class="btn btn-success" onclick="show1();">Edit</button></td>
                                         </tr>
                                         <tr id="id1" style="display: none;">
                                           <td class="pt-3-half">Gold</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-success">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
                                         </tr>
 
                                         <tr>
                                           <td class="pt-3-half">Silver</td>
                                           <td class="pt-3-half">10</td>
                                           <td class="pt-3-half">0.10</td>
-                                          <td><button type="button" class="btn btn-info" onclick="show2();">Edit</button></td>
+                                          <td><button type="button" class="btn btn-success" onclick="show2();">Edit</button></td>
                                         </tr>
                                         <tr id="id2" style="display: none;">
                                           <td class="pt-3-half">Silver</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-success">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
                                         </tr>
                                         <tr> 
                                           <td class="pt-3-half">Bronze</td>
                                           <td class="pt-3-half">5</td>
                                           <td class="pt-3-half">0.5</td>
-                                          <td><button type="button" class="btn btn-info" onclick="show3();">Edit</button></td>
+                                          <td><button type="button" class="btn btn-success" onclick="show3();">Edit</button></td>
                                         </tr> 
                                         <tr id="id3" style="display: none;">
                                           <td class="pt-3-half" >Bronze</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-success">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
                                         </tr>
                                          
                                         <script>
