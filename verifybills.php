@@ -67,9 +67,7 @@ $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AN
                                       <?php
                                       if (mysqli_num_rows($result) > 0) {
                                       while($row = mysqli_fetch_assoc($result)) {
-                                     //echo "Name: " . $row["type"]. "<br>";
-                                       //  }
-                                       // }
+                                     
                                         ?>
                                         <tr>
 
