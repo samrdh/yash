@@ -38,45 +38,64 @@ include("header.php");
                                           <th class="text-center"></th>
                                           <th class="text-center">Percentage</th>
                                           <th class="text-center">Rate Per Point</th>
+                                          <th>Action</th>
                                         </tr>
                                       </thead>
                                       <tbody>
                                         <tr>
                                           <td class="pt-3-half">Gold</td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td class="pt-3-half">12</td>
+                                          <td class="pt-3-half">0.15</td>
+                                          <td><button type="button" class="btn btn-success" onclick="show1();">Edit</button></td>
                                         </tr>
+                                        <tr id="id1" style="display: none;">
+                                          <td class="pt-3-half">Gold</td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
+                                        </tr>
+
                                         <tr>
                                           <td class="pt-3-half">Silver</td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td class="pt-3-half">10</td>
+                                          <td class="pt-3-half">0.10</td>
+                                          <td><button type="button" class="btn btn-success" onclick="show2();">Edit</button></td>
                                         </tr>
-                                        <tr>
+                                        <tr id="id2" style="display: none;">
+                                          <td class="pt-3-half">Silver</td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
+                                        </tr>
+                                        <tr> 
                                           <td class="pt-3-half">Bronze</td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input disabled='true' type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td class="pt-3-half">5</td>
+                                          <td class="pt-3-half">0.5</td>
+                                          <td><button type="button" class="btn btn-success" onclick="show3();">Edit</button></td>
+                                        </tr> 
+                                        <tr id="id3" style="display: none;">
+                                          <td class="pt-3-half" >Bronze</td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button></td>
                                         </tr>
-                                        <tr>
-                                          <td colspan="4" class="text-right">
-                                          <button class="btn btn-info editbtn">Edit</button>
-                                          <button class="btn btn-danger">Delete</button>
-                                          <button class="btn btn-success">Verify</button>
-                                        </td>
-                                        </tr>
+                                         
+                                        <script>
+                                            function show1() { 
+                                              document.getElementById("id1").style.display="table-row";
+                                            }
+                                            function show2() {
+                                              document.getElementById("id2").style.display="table-row";
+                                            }
+                                            function show3() {
+                                              document.getElementById("id3").style.display="table-row";
+                                            }
+                                        </script>
+
                                         </tbody>
                                       </table>
-
+                                                                      
                                     </div>
-
-                                  <ul class="pagination pull-right">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">>></a></li>
-                                  </ul>
-
-
                                   </div>
                                 </div>
                                 <br>

@@ -83,9 +83,9 @@ $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AN
                                          ?>
                                         <tr>
                                           <td colspan="4" class="text-right">
-                                          <button class="btn btn-info editbtn">Edit</button>
+                                          <button class="btn btn-success editbtn">Edit</button>
                                           <button class="btn btn-danger">Delete</button>
-                                          <button class="btn btn-success">Verify</button>
+                                          <button class="btn btn-info">Verify</button>
                                         </td>
                                         </tr>
                                         </tbody>
