@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-print_r($_SESSION);
+//print_r($_SESSION);
 ?>
         <div id="page-wrapper">
 
@@ -30,8 +30,14 @@ print_r($_SESSION);
                         <div class="col-xs-3">
                             <i class="fa fa-users fa-5x"></i>
                         </div>
+                        <?php
+                        $shop_id=$_SESSION['yashshopid'];
+                        $sql = "SELECT COUNT(*)as customer FROM `cs_shop` WHERE `shop_id`='$shop_id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);   
+                        ?>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
+                            <div class="huge"><?php echo $row['customer'];?></div>
                             <div>Total Customers!</div>
                         </div>
                     </div>

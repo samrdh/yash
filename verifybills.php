@@ -1,7 +1,6 @@
 <?php
 include("header.php");
-include"conn.php";
-$conn = OpenConn();
+
 $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AND `verified`=0';
          $result = mysqli_query($conn, $sql);
 
