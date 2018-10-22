@@ -1,5 +1,8 @@
 <?php
 session_start();
+include"conn.php";
+$conn = OpenConn();
+
 $time = $_SERVER['REQUEST_TIME'];
 
 /**
