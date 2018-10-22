@@ -1,18 +1,38 @@
 <?php
- include"conn.php";
- $conn = OpenConn();
-   session_start();
-   
+  session_start();
+  include"conn.php";
+  $conn = OpenConn();
+  
+  if(isset($_SESSION['yashshopid'])){
+    header("location:dashboard.php");
+  }
+  
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
+      // username and password sent from form       
+       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
+       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
+
+       $sql = "SELECT shop_id, s_name FROM shop WHERE username = '$myusername' and pass = '$mypassword'";
+         $result = mysqli_query($conn, $sql);
+         /* if (!$result) {
+          printf("Error: %s\n", mysqli_error($conn));
+          exit();
+       } */
+          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+          echo $row['s_name'];
+          $count = mysqli_num_rows($result);
       
-      $myusername = mysqli_real_escape_string($conn,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
-      $sql = "SELECT id FROM shop WHERE username = '$myusername' and pass = '$mypassword'";
-      $result = $conn->query($sql);
-      $row = $result->mysqli_fetch_array(MYSQLI_ASSOC);
-      
-   
+          // If result matched $myusername and $mypassword, table row must be 1 row
+          if($count == 1) {
+            $shopname= $row['s_name'];
+            $shopid= $row['shop_id'];
+
+            $_SESSION["yashshopid"] = $shopid;
+            $_SESSION["yashshopname"] = $shopname;
+             header("location: dashboard.php");
+          }else {
+             echo $error = "Your Login Name or Password is invalid";
+           }
    }
 ?>
 <html>
