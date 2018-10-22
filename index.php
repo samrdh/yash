@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
   session_start();
   include"conn.php";
@@ -78,72 +79,46 @@
                </form>
                
 					
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/sb-admin.css" rel="stylesheet">
+
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="row">
+<div class="col-lg-4">
+              <div class="card bg-primary text-center card-form">
+                <div class="card-body">
+                  <h3>Login</h3>
+                  <form>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" placeholder="Username">
+                    </div>
+
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-lg" placeholder="Confirm Password">
+                    </div>
+                    <input type="submit" class="btn btn-outline-light btn-block">
+                  </form>
+                </div>
+              </div>
+>>>>>>> 74d030dae05ff4f0f8a9f89ef155d663ec437948
             </div>
-				
-         </div>
-			
-      </div>
+</div>
 
-   </body>
+</body>
 </html>
-
-
-<!--
-              <form>
-              <h5 class="modal-title">Login</h5>
-
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" placeholder="Username" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button class="btn btn-secondary" data-dismiss="modal">Login</button>
-              </form>
-          
- 
-
-              <form>
-              <h5 class="modal-title">sign in</h5>
-
-                <div class="form-group">
-                  <label for="companyname">Company Name</label>
-                  <input type="text" placeholder="Enter Company Name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="ownersname">Owners Name</label>
-                  <input type="text" placeholder="Enter Owners Name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" placeholder="Enter Username" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" placeholder="Enter Password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="reenterpassword">Re-Enter Password</label>
-                  <input type="password" placeholder="Re-Enter Password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="contactno">Contact number</label>
-                  <input type="text" placeholder="Enter Contact number" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="text" placeholder="Enter Email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" placeholder="Address" class="form-control">
-                </div>
-                <button class="btn btn-secondary" data-dismiss="modal">sign in</button>
-
-              </form>
--->
-
-
-

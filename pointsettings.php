@@ -35,10 +35,10 @@ include("header.php");
                                       <table class="table table-bordered table-striped text-center">
                                         <thead>
                                         <tr>                                         
-                                          <th class="text-center"></th>
+                                          <th class="text-center">Category</th>
                                           <th class="text-center">Percentage</th>
                                           <th class="text-center">Rate Per Point</th>
-                                          <th>Action</th>
+                                          <th class="text-center">Action</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -52,7 +52,8 @@ include("header.php");
                                           <td class="pt-3-half">Gold</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-info">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button>
+                                          <button onclick="hidebutton1();" type="button" class="btn btn-danger">Cancel</button></td>
                                         </tr>
 
                                         <tr>
@@ -65,7 +66,8 @@ include("header.php");
                                           <td class="pt-3-half">Silver</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-info">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button>
+                                          <button onclick="hidebutton2();" type="button" class="btn btn-danger">Cancel</button></td>
                                         </tr>
                                         <tr> 
                                           <td class="pt-3-half">Bronze</td>
@@ -77,7 +79,8 @@ include("header.php");
                                           <td class="pt-3-half" >Bronze</td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
                                           <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-info">Done</button></td>
+                                          <td><button type="submit" class="btn btn-info">Done</button>
+                                          <button onclick="hidebutton3();" type="button" class="btn btn-danger">Cancel</button></td>
                                         </tr>
                                          
                                         <script>
@@ -89,6 +92,15 @@ include("header.php");
                                             }
                                             function show3() {
                                               document.getElementById("id3").style.display="table-row";
+                                            }
+                                            function hidebutton1() {
+                                              document.getElementById("id1").style.display="none";
+                                            }
+                                            function hidebutton2() {
+                                              document.getElementById("id2").style.display="none";
+                                            }
+                                            function hidebutton3() {
+                                              document.getElementById("id3").style.display="none";
                                             }
                                         </script>
 
