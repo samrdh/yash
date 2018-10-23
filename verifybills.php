@@ -93,38 +93,22 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                       </form>
                                       <script>
                                       function setUpdateAction() {                                     
-                                    /*  var checkBox = document.getElementById("myCheck");
-                                     //var checkBox = document.getElementsByName('billss[]');
-                                       if (checkBox.checked == true){
-                                        document.frmbill.action = "edit_bill.php";
-                                        document.frmbill.submit();
-                                        
-                                       } else {
-                                         alert ('You didn\'t choose any of the checkboxes!');
-		                                     return false;
-                                       } */
-
-var checked=false;
-var elements = document.getElementsByName("billss[]");
-	for(var i=0; i < elements.length; i++){
-		if(elements[i].checked) {
-			checked = true;
-		}
-  }
-  
-  if (checked == true){
-document.frmbill.action = "edit_bill.php";
-document.frmbill.submit();
-                                        
- } else {
-  alert ('You didn\'t choose any of the checkboxes!');
-	return false;
-  }
-
-	
-
-                                    
-                                    }
+                                            var checked=false;
+                                            var elements = document.getElementsByName("billss[]");
+                                             	for(var i=0; i < elements.length; i++){
+                                            		if(elements[i].checked) {
+		                                            	checked = true;
+	                                            	}
+                                              }
+                                            if (checked == true){
+                                            document.frmbill.action = "edit_bill.php";
+                                            document.frmbill.submit();
+                                            } else {
+                                              alert ('You didn\'t choose any of the checkboxes!');
+	                                           return false;
+                                            }
+                                       }
+                                       
                                       function setDeleteAction() {
                                       if(confirm("Are you sure, want to delete these rows?")) {
                                       document.frmbill.action = "delete_user.php";
