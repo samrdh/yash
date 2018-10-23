@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = "select css.cus_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id=1 AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
+$sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id=1 AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
          $result = mysqli_query($conn, $sql);
 
      /*     if (mysqli_num_rows($result) > 0) {
@@ -53,6 +53,7 @@ $sql = "select css.cus_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_na
 
                                   <div class="panel-body">
                                       <div class="table-responsive">
+                                      <form name="frmbill" method="post" action="">
                                       <table class="table table-bordered table-striped text-center">
                                         <thead>
                                         <tr>
@@ -71,7 +72,7 @@ $sql = "select css.cus_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_na
                                         ?>
                                         <tr>
 
-                                          <td><input type="checkbox" /></td>
+                                          <td><input type="checkbox" id="myCheck" name="billss[]" required value="<?php echo $row["bill_id"]; ?>"/></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["bill_no"]; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["f_name"];?>&nbsp;<?php echo $row["l_name"]; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["amt"]; ?>" type="text" class="form-control" ></td>
@@ -82,14 +83,34 @@ $sql = "select css.cus_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_na
                                          ?>
                                         <tr>
                                           <td colspan="5" class="text-right">
-                                          <button class="btn btn-success editbtn">Edit</button>
-                                          <button class="btn btn-danger">Delete</button>
-                                          <button class="btn btn-info">Verify</button>
+                                          <input type="button" class="btn btn-success" name="update" value="Edit" onClick="setUpdateAction();" /> 
+                                          <input type="button" class="btn btn-danger" name="delete" value="Delete" onClick="" /> 
+                                          <input type="button" class="btn btn-info" name="verify" value="Verify" onClick="" /> 
                                         </td>
                                         </tr>
                                         </tbody>
                                       </table>
-
+                                      </form>
+                                      <script>
+                                      function setUpdateAction() {                                     
+                                      var checkBox = document.getElementById("myCheck");
+                                       if (checkBox.checked == true){
+                                        document.frmbill.action = "edit_bill.php";
+                                        document.frmbill.submit();
+                                        
+                                       } else {
+                                         alert ('You didn\'t choose any of the checkboxes!');
+		                                     return false;
+                                       }
+                                    
+                                    }
+                                      function setDeleteAction() {
+                                      if(confirm("Are you sure, want to delete these rows?")) {
+                                      document.frmbill.action = "delete_user.php";
+                                      document.frmbill.submit();
+                                       }
+                                      }
+                                      </script>
                                     </div>
 
                                   <ul class="pagination pull-right">
