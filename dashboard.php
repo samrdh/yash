@@ -123,7 +123,7 @@ include("header.php");
                                 </div>
                         </div>
                     <div class="text-right">
-                        <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="pointsettings.php">View Details <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@ include("header.php");
                         </table>
                     </div>
                     <div class="text-right">
-                        <a href="#">View All Pending Bills <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="verifybills.php">View All Pending Bills <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
