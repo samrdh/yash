@@ -1,7 +1,7 @@
 <?php
 include("header.php");
-
-$sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id=1 AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
+$shop_id=$_SESSION['yashshopid'];
+$sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id='$shop_id' AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
          $result = mysqli_query($conn, $sql);
 
      /*     if (mysqli_num_rows($result) > 0) {
@@ -93,7 +93,8 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                       </form>
                                       <script>
                                       function setUpdateAction() {                                     
-                                      var checkBox = document.getElementById("myCheck");
+                                    /*  var checkBox = document.getElementById("myCheck");
+                                     //var checkBox = document.getElementsByName('billss[]');
                                        if (checkBox.checked == true){
                                         document.frmbill.action = "edit_bill.php";
                                         document.frmbill.submit();
@@ -101,7 +102,27 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                        } else {
                                          alert ('You didn\'t choose any of the checkboxes!');
 		                                     return false;
-                                       }
+                                       } */
+
+var checked=false;
+var elements = document.getElementsByName("billss[]");
+	for(var i=0; i < elements.length; i++){
+		if(elements[i].checked) {
+			checked = true;
+		}
+  }
+  
+  if (checked == true){
+document.frmbill.action = "edit_bill.php";
+document.frmbill.submit();
+                                        
+ } else {
+  alert ('You didn\'t choose any of the checkboxes!');
+	return false;
+  }
+
+	
+
                                     
                                     }
                                       function setDeleteAction() {
