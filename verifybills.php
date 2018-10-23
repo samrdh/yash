@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AND `verified`=0';
+$sql = "select css.cus_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id=1 AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
          $result = mysqli_query($conn, $sql);
 
      /*     if (mysqli_num_rows($result) > 0) {
@@ -73,9 +73,9 @@ $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AN
 
                                           <td><input type="checkbox" /></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["bill_no"]; ?>" type="text" class="form-control" ></td>
-                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["cs_id"]; ?>" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["f_name"];?>&nbsp;<?php echo $row["l_name"]; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["amt"]; ?>" type="text" class="form-control" ></td>
-                                          <td class="pt-3-half"><input disabled='true' value="" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"><input disabled='true' value="<?php echo $row["type"]; ?>" type="text" class="form-control" ></td>
                                         </tr>
                                         <?php
                                       }}
