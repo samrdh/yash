@@ -60,6 +60,7 @@ $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AN
                                           <th class="text-center">Bill #</th>
                                           <th class="text-center">Person Name</th>
                                           <th class="text-center">Amount</th>
+                                          <th class="text-center">Membership</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -74,12 +75,13 @@ $sql = 'SELECT * FROM bills where `timestamp`> DATE_SUB(NOW(),INTERVAL 1 DAY) AN
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["bill_no"]; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["cs_id"]; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["amt"]; ?>" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"><input disabled='true' value="" type="text" class="form-control" ></td>
                                         </tr>
                                         <?php
                                       }}
                                          ?>
                                         <tr>
-                                          <td colspan="4" class="text-right">
+                                          <td colspan="5" class="text-right">
                                           <button class="btn btn-success editbtn">Edit</button>
                                           <button class="btn btn-danger">Delete</button>
                                           <button class="btn btn-info">Verify</button>
