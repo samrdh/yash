@@ -32,13 +32,14 @@ include("header.php");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped">
+                        <table class="table table-bordered table-hover table-striped text-center">
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Name</th>                                    
-                                    <th>Membership Type</th>
-                                    <th>Total Points</th>
+                                    <th class="text-center">Name</th>                                    
+                                    <th class="text-center">Membership Type</th>
+                                    <th class="text-center">Total Points</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,12 +48,14 @@ include("header.php");
                                     <td>Richa Dessai</td>
                                     <td>Gold</td>
                                     <td>10</td>
+                                    <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="sample[]"/></td>
                                     <td>Rahul Naik</td>
                                     <td>Silver</td>
                                     <td>20</td>
+                                    <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
                                 </tr>                                                                              
                             </tbody>
                         </table>
@@ -60,7 +63,7 @@ include("header.php");
 
 
                     <div id="Edit_membership_type" style="display: block" class="text-right">
-                    <button onclick="myFunction()" class="btn btn-info">Edit Membership Type</button>
+                    <button onclick="myFunction()" class="btn btn-primary">Edit Membership Type</button>
                     </div>
 
                     <div id="select_type" style="display: none" class="text-right"> 
