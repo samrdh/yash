@@ -1,15 +1,17 @@
 <?php
 
-/* if(isset($_POST["submit"]) && $_POST["submit"]!="") {
-$usersCount = count($_POST["bill_no"]);
-for($i=0;$i<$usersCount;$i++) {
-mysqli_query($conn, "UPDATE users set userName='" . $_POST["userName"][$i] . "', password='" . $_POST["password"][$i] . "', firstName='" . $_POST["firstName"][$i] . "', lastName='" . $_POST["lastName"][$i] . "' WHERE userId='" . $_POST["userId"][$i] . "'");
+if(isset($_POST["submit"]) && $_POST["submit"]!="") {
+    require_once('conn.php'); $conn = OpenConn();
+    $usersCount = count($_POST["bill_no"]);
+    for($i=0;$i<$usersCount;$i++) {
+    $res=mysqli_query($conn, "UPDATE bills set bill_no='" . $_POST["bill_no"][$i] . "',  amt='" . $_POST["amt"][$i] . "' WHERE bill_id='" . $_POST["bill_id"][$i] . "'");
+    }
+    if($res){header("Location:verifybills.php");
+    }
 }
-header("Location:index.php");
-} */
-
 
 include("header.php");
+
 $shop_id=$_SESSION['yashshopid'];
 ?>
         <div id="page-wrapper">
@@ -42,6 +44,7 @@ $shop_id=$_SESSION['yashshopid'];
                                 <div class="panel panel-default">
                                   <div class="panel-body">
                                       <div class="table-responsive">
+                                      <form name="frmUser" method="post" action="">
                                       <table class="table table-bordered table-striped text-center">
                                         <thead>
                                         <tr>
@@ -59,7 +62,7 @@ $shop_id=$_SESSION['yashshopid'];
                                             $row[$i]= mysqli_fetch_array($result);
                                         ?>
                                         <tr>
-                                          <td class="pt-3-half"><input  name="bill_no[]" value="<?php echo $row[$i]['bill_no']; ?>" type="text" class="form-control" ></td>
+                                          <td class="pt-3-half"> <input type="hidden" name="bill_id[]" class="txtField" value="<?php echo $row[$i]['bill_id']; ?>"> <input  name="bill_no[]" value="<?php echo $row[$i]['bill_no']; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input disabled='true' name="f_name[]" value="<?php echo $row[$i]['f_name']; ?>&nbsp;<?php echo $row[$i]['l_name']; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input name="amt[]" value="<?php echo $row[$i]['amt']; ?>" type="text" class="form-control" ></td>
                                           <td class="pt-3-half"><input name="type[]" disabled='true' value="<?php echo $row[$i]['type']; ?>" type="text" class="form-control" ></td>
@@ -69,12 +72,12 @@ $shop_id=$_SESSION['yashshopid'];
                                         ?>
                                         <tr>
                                           <td colspan="5" class="text-right">
-                                          <input type="button" class="btn btn-success" name="update" value="Update"  /> 
+                                          <input type="submit" name="submit" class="btn btn-success"  value="Update"  /> 
                                         </td>
                                         </tr>
                                         </tbody>
                                       </table>
-                                                                      
+                                      </form>                             
                                     </div>
                                   </div>
                                 </div>
