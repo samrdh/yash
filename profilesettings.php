@@ -148,18 +148,6 @@ include("header.php");
                                                 </div>
                                                 <br>
                                             </form>
-                                            <script>
-                    function myFunction() {
-                        var x = document.getElementById("select_type");
-                        var y = document.getElementById("Edit_membership_type");
-                        
-                        if (x.style.display === "none" && y.style.display === "block") {
-                            x.style.display = "block";y.style.display = "none";
-                        } else {
-                            x.style.display = "none";y.style.display = "block";
-                        }
-                    }
-                    </script>
                     </div>
                   </div>
                 </div>
