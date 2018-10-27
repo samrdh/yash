@@ -29,7 +29,7 @@ include("header.php");
               <form role="form">
                   <div class="form-group">
                       <label>Verify Code</label>
-                      <input class="form-control">
+                      <input class="form-control" required>
                       <p class="help-block">Please enter the Redemption code to verify.</p>
                       <button type="submit" class="btn btn-primary">Verify</button>
                   </div>

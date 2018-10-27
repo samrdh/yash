@@ -82,19 +82,19 @@ include("header.php");
                                 <div class="form-group row align-items-center">
                                 <label class="col-3">Owners Name</label>
                                 <div class="col">
-                                    <input type="text" placeholder="Owners Name" value="Whittaker" name="profile-last-name" class="form-control" />
+                                    <input type="text" placeholder="Owners Name" value="Whittaker" name="profile-last-name" class="form-control" autocomplete="off" required/>
                                 </div>
                                 </div>
                                 <div class="form-group row align-items-center">
                                 <label class="col-3">Username</label>
                                 <div class="col">
-                                <input type="text" placeholder="Change Username" name="profile-email" class="form-control" required />
+                                <input type="text" placeholder="Change Username" name="profile-email" class="form-control" autocomplete="off" required />
                             </div>
                             </div>
                             <div class="form-group row align-items-center">
                             <label class="col-3">Contact Number</label>
                             <div class="col">
-                                <input type="text" placeholder="Enter Contact Number" name="profile-location" class="form-control" />
+                                <input type="text" placeholder="Enter Contact Number" name="profile-location" class="form-control" pattern="[9-8-7-6]{1}[0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9" required/>
                             </div>
                             </div>
                                                 
@@ -118,7 +118,7 @@ include("header.php");
                                                 <div class="form-group row align-items-center">
                                                     <label class="col-3">Shop Name</label>
                                                     <div class="col">
-                                                        <input type="text" placeholder="Shop Name" value="David" name="profile-first-name" class="form-control" required />
+                                                        <input type="text" placeholder="Shop Name" value="David" name="profile-first-name" class="form-control" autocomplete="off" required />
                                                     </div>
                                                 </div>
 
@@ -130,7 +130,7 @@ include("header.php");
                                                       <option value="PAN">PAN</option>
                                                       <option value="AADHAR">AADHAR</option>
                                                     </select>
-                                                        <input type="text" placeholder="GST / PAN / AADHAR" name="profile-location" class="form-control" />                                                        
+                                                        <input type="text" placeholder="GST / PAN / AADHAR" name="profile-location" class="form-control" autocomplete="off" required />                                                        
                                                     </div>
                                                     <br>
                                                   </div>
@@ -138,7 +138,7 @@ include("header.php");
                                                 <div class="form-group row">
                                                     <label class="col-3">Business Address</label>
                                                     <div class="col">
-                                                        <textarea type="text" placeholder="Change shop address" name="profile-bio" class="form-control" rows="4"></textarea>
+                                                        <textarea type="text" placeholder="Change shop address" name="profile-bio" class="form-control" rows="4" autocomplete="off" required></textarea>
                                                         <small>Please enter a valid address</small>
                                                     </div>
                                                 </div>
@@ -154,43 +154,94 @@ include("header.php");
                   
               </div>
 
-                            <div class="tab-pane" id="password">
+                  <div class="tab-pane" id="password">
                   <div class="container-fluid">
                   <div class="row">
                     <div class="col-lg-12">
                       <br>
-                      <form>
-                                                <div class="form-group row align-items-center">
-                                                    <label class="col-3">Current Password</label>
-                                                    <div class="col">
-                                                        <input type="password" placeholder="Enter your current password" name="password-current" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row align-items-center">
-                                                    <label class="col-3">New Password</label>
-                                                    <div class="col">
-                                                        <input type="password" placeholder="Enter a new password" name="password-new" class="form-control" />
-                                                        <small>Password must be at least 8 characters long</small>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row align-items-center">
-                                                    <label class="col-3">Confirm Password</label>
-                                                    <div class="col">
-                                                        <input type="password" placeholder="Confirm your new password" name="password-new-confirm" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="row justify-content-end">
-                                                    <button type="submit" class="btn btn-primary">Change Password</button>
-                                                </div>
-                                                <br>
-                                            </form>
+                          <form>
+                            <div class="form-group row align-items-center">
+                                  <label class="col-3">Current Password</label>
+                                <div class="col">
+                                  <input type="password" placeholder="Enter your current password" name="password-current" class="form-control" required/>
+                                </div>
+                            </div>
+                                    <!--div class="form-group row align-items-center">
+                                      <label class="col-3">New Password</label>
+                                        <div class="col">
+                                          <input type="password" id="capslockinput" placeholder="Enter a new password" name="password-new" class="form-control" pattern=".{8,}" title="Password must be at least 8 characters long"/>
+                                            <small>Password must be at least 8 characters long</small>
+                                            <small style="display: none" id="password-caps-warning" class="form-text text-danger d-none">Warning: Caps lock enabled</small>
+                                        </div>
+                                    </div>
+                                  <div class="form-group row align-items-center">
+                                      <label class="col-3">Confirm Password</label>
+                                    <div class="col">
+                                      <input type="password" placeholder="Confirm your new password" name="password-new-confirm" class="form-control" />
+                                    </div>
+                                  </div-->
+
+        <div class="form-group row align-items-center">
+                  <label for="pass1" class="col-3">New Password:</label>
+            <div class="col">
+              <input type="password" placeholder="Enter a new password" name="pass1" id="pass1" pattern=".{8,}" title="Password must be at least 8 characters long" required>
+              <small>Password must be at least 8 characters long</small>
+            </div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label for="pass2" class="col-3">Confirm Password:</label>
+          <div class="col">
+              <input type="password" placeholder="Confirm your new password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
+              <span id="confirmMessage" class="confirmMessage"></span>
+          </div>
+        </div>
+
+    <div class="row justify-content-end">
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </div>
+<br>
+</form>
+
                     </div>
+                    <script>
+                    //check if capslock is on
+                        var input = document.getElementById("capslockinput");
+                        var text = document.getElementById("password-caps-warning");
+                        input.addEventListener("keyup", function(event) {
+
+                        if (event.getModifierState("CapsLock")) {
+                            text.style.display = "block";
+                          } else {
+                            text.style.display = "none"
+                          }
+                        });
+
+                    //check if password matches
+                        function checkPass()
+                        {
+                            var pass1 = document.getElementById('pass1');
+                            var pass2 = document.getElementById('pass2');
+                            var message = document.getElementById('confirmMessage');
+                            var goodColor = "#66cc66";
+                            var badColor = "#ff6666";
+                            if(pass1.value == pass2.value){ 
+                                pass2.style.backgroundColor = goodColor;
+                                message.style.color = goodColor;
+                                message.innerHTML = "Passwords Match!"
+                            }else{
+                                pass2.style.backgroundColor = badColor;
+                                message.style.color = badColor;
+                                message.innerHTML = "Passwords Do Not Match!"
+                            }
+                        }                    
+                    </script>
+
                   </div>
                 </div>
                   
               </div>
 
-          <div class="clearfix"></div>
+          
 
         </div>
       </div>
