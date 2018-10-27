@@ -121,13 +121,20 @@ include("header.php");
                                                         <input type="text" placeholder="Shop Name" value="David" name="profile-first-name" class="form-control" required />
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="form-group row align-items-center">
+
+                                                <div class="form-inline row align-items-center">
                                                     <label class="col-3">Bussiness ID</label>
                                                     <div class="col">
-                                                        <input type="text" placeholder="GST / PAN / AADHAR" name="profile-location" class="form-control" />
+                                                    <select class="form-control">
+                                                      <option value="GST">GST</option>
+                                                      <option value="PAN">PAN</option>
+                                                      <option value="AADHAR">AADHAR</option>
+                                                    </select>
+                                                        <input type="text" placeholder="GST / PAN / AADHAR" name="profile-location" class="form-control" />                                                        
                                                     </div>
-                                                </div>
+                                                    <br>
+                                                  </div>
+
                                                 <div class="form-group row">
                                                     <label class="col-3">Business Address</label>
                                                     <div class="col">
@@ -141,6 +148,18 @@ include("header.php");
                                                 </div>
                                                 <br>
                                             </form>
+                                            <script>
+                    function myFunction() {
+                        var x = document.getElementById("select_type");
+                        var y = document.getElementById("Edit_membership_type");
+                        
+                        if (x.style.display === "none" && y.style.display === "block") {
+                            x.style.display = "block";y.style.display = "none";
+                        } else {
+                            x.style.display = "none";y.style.display = "block";
+                        }
+                    }
+                    </script>
                     </div>
                   </div>
                 </div>
