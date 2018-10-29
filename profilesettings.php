@@ -163,7 +163,8 @@ include("header.php");
                             <div class="form-group row align-items-center">
                                   <label class="col-3">Current Password</label>
                                 <div class="col">
-                                  <input type="password" placeholder="Enter your current password" name="password-current" class="form-control" required/>
+                                  <input type="password" id="capslockinput" placeholder="Enter your current password" name="password-current" class="form-control" required/>
+                                  <small style="display: none" id="password-caps-warning" class="form-text text-danger d-none">Warning: Caps lock enabled</small>
                                 </div>
                             </div>
                                     <!--div class="form-group row align-items-center">

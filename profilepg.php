@@ -35,8 +35,8 @@ include("header.php");
                                         </div>
                                         <div class="col-xs-10">
                                             <div class="media-body ml-3">
-                                                <h1 class="mb-0">Geeta Automation Technologies</h1>
-                                                <p class="lead">Kapil Karekar</p>
+                                                <h3 class="mb-0">Geeta Automation Technologies</h3>
+                                                <small>Kapil Karekar</small>
                                             </div>
                                         </div>
                                     </div>
