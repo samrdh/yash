@@ -167,20 +167,6 @@ include("header.php");
                                   <small style="display: none" id="password-caps-warning" class="form-text text-danger d-none">Warning: Caps lock enabled</small>
                                 </div>
                             </div>
-                                    <!--div class="form-group row align-items-center">
-                                      <label class="col-3">New Password</label>
-                                        <div class="col">
-                                          <input type="password" id="capslockinput" placeholder="Enter a new password" name="password-new" class="form-control" pattern=".{8,}" title="Password must be at least 8 characters long"/>
-                                            <small>Password must be at least 8 characters long</small>
-                                            <small style="display: none" id="password-caps-warning" class="form-text text-danger d-none">Warning: Caps lock enabled</small>
-                                        </div>
-                                    </div>
-                                  <div class="form-group row align-items-center">
-                                      <label class="col-3">Confirm Password</label>
-                                    <div class="col">
-                                      <input type="password" placeholder="Confirm your new password" name="password-new-confirm" class="form-control" />
-                                    </div>
-                                  </div-->
 
         <div class="form-group row align-items-center">
                   <label for="pass1" class="col-3">New Password:</label>
