@@ -1,7 +1,24 @@
 <?php
 include("header.php");
-
 $shop_id=$_SESSION['yashshopid'];
+//
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if(isset($_POST["goldsubmit"]) && $_POST["goldsubmit"]!="") {
+   $idd = $_POST["idg"];
+   $res=mysqli_query($conn, "UPDATE point_perc set disc='" . $_POST["percg"] . "',  rate='" . $_POST["rateg"] . "' WHERE id='$idd' and shop_id='$shop_id'");
+ 
+  }elseif(isset($_POST["silversubmit"]) && $_POST["silversubmit"]!=""){
+  $ids = $_POST["ids"];
+  $res=mysqli_query($conn, "UPDATE point_perc set disc='" . $_POST["percs"] . "',  rate='" . $_POST["rates"] . "' WHERE id='$ids' and shop_id='$shop_id'");
+ 
+  }elseif(isset($_POST["bronzesubmit"]) && $_POST["bronzesubmit"]!=""){
+    $idb = $_POST["idb"];
+    $res=mysqli_query($conn, "UPDATE point_perc set disc='" . $_POST["percb"] . "',  rate='" . $_POST["rateb"] . "' WHERE id='$idb' and shop_id='$shop_id'");
+  }  
+  
+}
+//
+
 $sqlg = "SELECT p.*,m.type FROM point_perc as p INNER JOIN membership as m ON p.m_id=m.m_id WHERE shop_id='$shop_id' AND p.m_id=1  ORDER BY p.m_id ASC";
          $resultg = mysqli_query($conn, $sqlg);
          $rowg = mysqli_fetch_assoc($resultg);
@@ -12,8 +29,6 @@ $sqlb = "SELECT p.*,m.type FROM point_perc as p INNER JOIN membership as m ON p.
          $resultb = mysqli_query($conn, $sqlb);
          $rowb = mysqli_fetch_assoc($resultb);      
           
-
-
 ?>
         <div id="page-wrapper">
 
@@ -64,12 +79,12 @@ $sqlb = "SELECT p.*,m.type FROM point_perc as p INNER JOIN membership as m ON p.
                                           <td><button type="button" class="btn btn-success" onclick="show1();">Edit</button></td>
                                         </tr>
                                         <tr id="id1" style="display: none;">
-                                        <form name="gold" method="post" action="dashboard.php">
-                                          <td class="pt-3-half"><?php echo $rowg['type']; ?><input type="hidden" value="<?php echo $rowg['id']; ?>" class="form-control"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" name="goldsubmit" class="btn btn-info">Done</button>
-                                          <button onclick="hidebutton1();" type="button" class="btn btn-danger">Cancel</button></td>
+                                        <form name="gold" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                                          <td class="pt-3-half"><?php echo $rowg['type']; ?><input type="hidden" name="idg" value="<?php echo $rowg['id']; ?>" class="form-control"></td>
+                                          <td class="pt-3-half"><input type="text" autocomplete="off" name="percg" class="form-control" value="<?php echo $rowg['disc']; ?>" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" autocomplete="off" name="rateg" class="form-control" value="<?php echo $rowg['rate']; ?>" placeholder="Rate Per Point"></td>
+                                          <td><input type="submit" name="goldsubmit" class="btn btn-info"value="Done" />
+                                          <button onclick="hidebutton1();"  type="button" class="btn btn-danger">Cancel</button></td>
                                         </form>
                                         </tr>
                                       <!-- gold_end -->
@@ -81,11 +96,13 @@ $sqlb = "SELECT p.*,m.type FROM point_perc as p INNER JOIN membership as m ON p.
                                           <td><button type="button" class="btn btn-success" onclick="show2();">Edit</button></td>
                                         </tr>
                                         <tr id="id2" style="display: none;">
-                                          <td class="pt-3-half"><?php echo $rows['type']; ?><input type="hidden" value="<?php echo $rows['id']; ?>" class="form-control"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-info">Done</button>
+                                        <form name="silver" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                                          <td class="pt-3-half"><?php echo $rows['type']; ?><input type="hidden" name="ids"  value="<?php echo $rows['id']; ?>" class="form-control"></td>
+                                          <td class="pt-3-half"><input type="text" autocomplete="off" name="percs" value="<?php echo $rows['disc']; ?>" class="form-control" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" autocomplete="off" name="rates" value="<?php echo $rows['rate']; ?>" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td><input type="submit" name="silversubmit" class="btn btn-info" value="Done"/>
                                           <button onclick="hidebutton2();" type="button" class="btn btn-danger">Cancel</button></td>
+                                          </form>
                                         </tr>
                                         <!-- Silver_end -->
                                         <!-- Bronze -->
@@ -96,11 +113,13 @@ $sqlb = "SELECT p.*,m.type FROM point_perc as p INNER JOIN membership as m ON p.
                                           <td><button type="button" class="btn btn-success" onclick="show3();">Edit</button></td>
                                         </tr> 
                                         <tr id="id3" style="display: none;">
-                                          <td class="pt-3-half" ><?php echo $rowb['type']; ?><input type="hidden" value="<?php echo $rowb['id']; ?>" class="form-control"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Percentage"></td>
-                                          <td class="pt-3-half"><input type="text" class="form-control" placeholder="Rate Per Point"></td>
-                                          <td><button type="submit" class="btn btn-info">Done</button>
+                                        <form name="silver" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                                          <td class="pt-3-half" ><?php echo $rowb['type']; ?><input type="hidden" name="idb" value="<?php echo $rowb['id']; ?>" class="form-control"></td>
+                                          <td class="pt-3-half"><input type="text" value="<?php echo $rowb['disc']; ?>" autocomplete="off" name="percb" class="form-control" placeholder="Percentage"></td>
+                                          <td class="pt-3-half"><input type="text" value="<?php echo $rowb['rate']; ?>" autocomplete="off" name="rateb" class="form-control" placeholder="Rate Per Point"></td>
+                                          <td><input type="submit" name="bronzesubmit" class="btn btn-info" value="Done" />
                                           <button onclick="hidebutton3();" type="button" class="btn btn-danger">Cancel</button></td>
+                                          </form>
                                         </tr>
                                          <!-- bronze_end -->
 
