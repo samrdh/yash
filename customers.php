@@ -1,5 +1,8 @@
 <?php
 include("header.php");
+$shop_id=$_SESSION['yashshopid'];
+$sql = "SELECT c.*,css.t_points,m.type FROM customer as c INNER JOIN cs_shop as css ON c.cus_id=css.cus_id INNER JOIN membership as m ON m.m_id=css.m_id WHERE css.shop_id='$shop_id' ORDER BY css.cus_id DESC";
+         $result = mysqli_query($conn, $sql);
 ?>
         <div id="page-wrapper">
 
@@ -43,27 +46,28 @@ include("header.php");
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                      if (mysqli_num_rows($result) > 0) {
+                                      while($row = mysqli_fetch_assoc($result)) {
+                                     
+                                        ?>
                                 <tr>
-                                    <td><input type="checkbox" name="sample[]"/></td>
+                                    <td><input type="checkbox" id="myCheck" name="custmr[]" required value=""/></td>
                                     <td>Richa Dessai</td>
                                     <td>Gold</td>
                                     <td>10</td>
                                     <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="sample[]"/></td>
-                                    <td>Rahul Naik</td>
-                                    <td>Silver</td>
-                                    <td>20</td>
-                                    <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
-                                </tr>                                                                              
+                                </tr>  
+                                <?php
+                                      }}
+                                ?>                                                                          
                             </tbody>
                         </table>
                     </div>
 
 
                     <div id="Edit_membership_type" style="display: block" class="text-right">
-                    <button onclick="myFunction()" class="btn btn-primary">Edit Membership Type</button>
+                    <button onclick="edit()" class="btn btn-primary">Edit Membership Type</button>
                     </div>
 
                     <div id="select_type" style="display: none" class="text-right"> 
@@ -76,24 +80,61 @@ include("header.php");
                         <option>Bronze</option>
                     </select>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <button type="button" onclick="myFunction()" class="btn btn-danger">Cancel</button>
+                    <input type="button" class="btn btn-success"  value="Submit" onClick="sub();" />
+                    <input type="button" class="btn btn-danger"  value="Cancel" onClick="cancl();" />
                     </form>
                     </div>
 
-
-                    <script>
-                    function myFunction() {
-                        var x = document.getElementById("select_type");
-                        var y = document.getElementById("Edit_membership_type");
+                <script>
+                function edit() {                                     
+                  var checked=false;
+                  var elements = document.getElementsByName("custmr[]");
+                  for(var i=0; i < elements.length; i++){
+                  if(elements[i].checked) {
+		          checked = true;
+	                }
+                  }
+                  if (checked == true){
+                   var x = document.getElementById("select_type");
+                   var y = document.getElementById("Edit_membership_type");
                         
-                        if (x.style.display === "none" && y.style.display === "block") {
-                            x.style.display = "block";y.style.display = "none";
-                        } else {
-                            x.style.display = "none";y.style.display = "block";
-                        }
+                   if (x.style.display === "none" && y.style.display === "block") {
+                    x.style.display = "block";y.style.display = "none";
+                    } else {
+                      x.style.display = "none";y.style.display = "block";
+                      }
+                  } else {
+                     alert ('You didn\'t choose any of the checkboxes!');
+	                 return false;
                     }
-                    </script>
+                }
+
+                function sub() {                                     
+                  var checked=false;
+                  var elements = document.getElementsByName("custmr[]");
+                  for(var i=0; i < elements.length; i++){
+                  if(elements[i].checked) {
+		          checked = true;
+	                }
+                  }
+                  if (checked == true){
+                    alert ('Submitted!');
+                  } else {
+                     alert ('You didn\'t choose any of the checkboxes!');
+	                 return false;
+                    }
+                }               
+
+                function cancl(){
+                 var x = document.getElementById("select_type");
+                 var y = document.getElementById("Edit_membership_type");      
+                  if (x.style.display === "none" && y.style.display === "block") {
+                    x.style.display = "block";y.style.display = "none";
+                    } else {
+                      x.style.display = "none";y.style.display = "block";
+                      }
+                }
+                </script>
                 </div>
 
     </div>
