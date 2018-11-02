@@ -130,7 +130,7 @@ include("header.php");
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> # of members for each category</h3>
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> No of members for each category</h3>
                 </div>
                 <div class="panel-body">
                     <div class="list-group">
@@ -150,6 +150,9 @@ include("header.php");
                                     <span class="badge">20</span>
                                     <i class="fa fa-fw fa-empire"></i> Bronze
                                 </div>
+                    </div>
+                    <div class="text-right">
+                        <a href="customers.php">View Customers <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                     
                 </div>
