@@ -1,12 +1,32 @@
 <?php
-include("header.php");
-$shop_id=$_SESSION['yashshopid'];
-$sql = "SELECT c.*,css.t_points,m.type FROM customer as c INNER JOIN cs_shop as css ON c.cus_id=css.cus_id INNER JOIN membership as m ON m.m_id=css.m_id WHERE css.shop_id='$shop_id' ORDER BY css.cus_id DESC";
-         $result = mysqli_query($conn, $sql);
-?>
-        <div id="page-wrapper">
+    include("header.php");
+    $shop_id=$_SESSION['yashshopid'];
+    $sql = 'SELECT c.*,css.t_points,m.type FROM customer as c INNER JOIN cs_shop as css ON c.cus_id=css.cus_id INNER JOIN membership as m ON m.m_id=css.m_id WHERE css.shop_id='.$shop_id.' ORDER BY css.cus_id DESC';
+    $allresult = mysqli_query($conn, $sql); 
 
-<div class="container-fluid">
+    $numrows = mysqli_num_rows($allresult);
+    $rowsperpage = 10;
+    $totalpages = ceil($numrows / $rowsperpage);
+    if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+    $currentpage = (int) $_GET['currentpage'];
+    } else {
+    $currentpage = 1;
+    }
+
+    if ($currentpage > $totalpages) {
+    $currentpage = $totalpages;
+    } 
+    if ($currentpage < 1) {
+    $currentpage = 1;
+    } 
+    $offset = ($currentpage - 1) * $rowsperpage;
+    $finalquery = $sql . ' LIMIT '.$offset.','. $rowsperpage;
+
+    $result = mysqli_query($conn, $finalquery);
+?>
+  <div id="page-wrapper">
+
+ <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="row">
@@ -53,9 +73,9 @@ $sql = "SELECT c.*,css.t_points,m.type FROM customer as c INNER JOIN cs_shop as 
                                         ?>
                                 <tr>
                                     <td><input type="checkbox" id="myCheck" name="custmr[]" required value=""/></td>
-                                    <td>Richa Dessai</td>
-                                    <td>Gold</td>
-                                    <td>10</td>
+                                    <td><?php echo $row['f_name'];?>&nbsp;<?php echo $row['l_name']; ?></td>
+                                    <td><?php echo $row['type'];?></td>
+                                    <td><?php echo $row['t_points'];?></td>
                                     <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
                                 </tr>  
                                 <?php
@@ -84,6 +104,40 @@ $sql = "SELECT c.*,css.t_points,m.type FROM customer as c INNER JOIN cs_shop as 
                     <input type="button" class="btn btn-danger"  value="Cancel" onClick="cancl();" />
                     </form>
                     </div>
+<div style="text-align:center">
+ <ul class="pagination">
+            <?php
+            $range = 4;
+            if ($currentpage > 1) {
+                echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=1'><b><<</b></a></li>";
+                $prevpage = $currentpage - 1;
+                echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=$prevpage'><b><</b></a></li>";
+            }
+            else{
+                echo "<li class='disabled'><a ><b><<</b></a></li>";
+                echo "<li class=' disabled'><a ><b><</b></a></li>";
+            }
+            for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
+            if (($x > 0) && ($x <= $totalpages)) {
+                if ($x == $currentpage) {
+                    echo "<li class='active'><a><span class='sr-only'>(current)</span><b>$x</b></a></li>";
+                } else {
+                    echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=$x'>$x</a></li>";
+                }
+            }
+            } 
+            if ($currentpage != $totalpages) {
+            $nextpage = $currentpage + 1;
+            echo "<li ><a  href='{$_SERVER['PHP_SELF']}?currentpage=$nextpage'><b>></b></a></li>";
+            echo "<li ><a  href='{$_SERVER['PHP_SELF']}?currentpage=$totalpages'><b>>></b></a></li>";
+            }
+            else{
+                echo "<li class='disabled'><a><b>></b></a></li>";
+                echo "<li class='disabled'><a><b>>></b></a></li>";             
+            }
+            ?>
+</ul>
+</div>
 
                 <script>
                 function edit() {                                     
