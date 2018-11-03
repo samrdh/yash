@@ -29,10 +29,10 @@ $shop_id=$_SESSION['yashshopid'];
                     <i class="fa fa-dashboard"></i> Dashboard
                 </li>
                 <li class="">
-                                    <i class="fa fa-edit"></i> Verify Bills
+                     <i class="fa fa-edit"></i> Verify Bills
                 </li>
                 <li>
-                         Edit Bills
+                     Edit Bills
                 </li>
             </ol>
         </div>
