@@ -53,7 +53,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="fa fa-users fa-fw"></i> List of customers</h3>
                         </div>
-                    <form>
+                    <form name="editmembr" method="post" action="">
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover table-striped text-center">
@@ -73,7 +73,7 @@
                                         
                                             ?>
                                     <tr>
-                                        <td><input type="checkbox" id="myCheck" name="custmr[]"  value=""/></td>
+                                        <td><input type="checkbox" id="cuschk" name="custmr[]"  value="<?php echo $row['cus_id']; ?>"/></td>
                                         <td><?php echo $row['f_name'];?>&nbsp;<?php echo $row['l_name']; ?></td>
                                         <td><?php echo $row['type'];?></td>
                                         <td><?php echo $row['t_points'];?></td>
@@ -94,18 +94,18 @@
 
                         <div id="select_type" style="display: none" class="text-right form-inline"> 
                             <!-- INLINE FORM -->
-                            <select id="gender" class="form-control">
-                                <option>Select Membership Type</option>
-                                <option >Gold</option>
-                                <option>Silver</option>
-                                <option>Bronze</option>
+                            <select id="typp" name="typee" class="form-control">
+                                <option value="" >Select Membership Type</option>
+                                <option value="1">Gold</option>
+                                <option value="2">Silver</option>
+                                <option value="3">Bronze</option>
                             </select>
 
                             <input type="button" class="btn btn-success"  value="Submit" onClick="sub();" />
                             <input type="button" class="btn btn-danger"  value="Cancel" onClick="cancl();" />
                         </div>
                         
-                        
+                        <!--  pagination  -->
                         <div style="text-align:center">
                             <ul class="pagination">
                                         <?php
@@ -142,7 +142,7 @@
                         </div>
 
                         <script>
-                            function edit() {                                     
+                         function edit() {                                     
                             var checked=false;
                             var elements = document.getElementsByName("custmr[]");
                             for(var i=0; i < elements.length; i++){
@@ -163,9 +163,9 @@
                                 alert ('You didn\'t choose any of the checkboxes!');
                                 return false;
                                 }
-                            }
+                         }
 
-                            function sub() {                                     
+                         function sub() {                                     
                             var checked=false;
                             var elements = document.getElementsByName("custmr[]");
                             for(var i=0; i < elements.length; i++){
@@ -174,14 +174,24 @@
                                 }
                             }
                             if (checked == true){
-                                alert ('Submitted!');
+                                var typ = document.getElementById("typp");
+                                if (typ.value == "") {
+                                    alert("Please select an option!");
+                                    return false;
+                                }else{
+                                    alert ('Submitted!');
+                                    document.editmembr.action = "editmembr.php";
+                                    document.editmembr.submit();
+                                    return true;
+                                }
+
                             } else {
                                 alert ('You didn\'t choose any of the checkboxes!');
                                 return false;
                                 }
-                            }               
+                         }               
 
-                            function cancl(){
+                         function cancl(){
                             var x = document.getElementById("select_type");
                             var y = document.getElementById("Edit_membership_type");      
                             if (x.style.display === "none" && y.style.display === "block") {
@@ -189,7 +199,8 @@
                                 } else {
                                 x.style.display = "none";y.style.display = "block";
                                 }
-                            }
+                         }
+
                         </script>
                      </div>
                      </form>
