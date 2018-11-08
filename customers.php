@@ -88,7 +88,7 @@
 
 
                         <div id="Edit_membership_type"  style="display: block" class="text-right">
-                        <input type="button" onclick="edit()"  class="btn btn-primary"value="Edit Membership Type"/>
+                        <input type="button" onclick="edit()" class="btn btn-primary"value="Edit Membership Type"/>
                         
                         </div>
 
