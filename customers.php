@@ -76,8 +76,8 @@
                                         <td><input type="checkbox" id="cuschk" name="custmr[]"  value="<?php echo $row['cus_id']; ?>"/></td>
                                         <td><?php echo $row['f_name'];?>&nbsp;<?php echo $row['l_name']; ?></td>
                                         <td><?php echo $row['type'];?></td>
-                                        <td><?php echo $row['t_points'];?></td>
-                                        <td><button class="btn btn-info" type="submit"><i class="fa fa-eye"></i> View more</button></td>
+                                        <td><?php echo $row['t_points'];?></td>       
+                                        <td><a href="customers_view.php?cussid=<?php echo $row['cus_id']; ?>" class="btn btn-info">View more</a></td>                                
                                     </tr>  
                                     <?php
                                         }}
@@ -179,7 +179,6 @@
                                     alert("Please select an option!");
                                     return false;
                                 }else{
-                                    alert ('Submitted!');
                                     document.editmembr.action = "editmembr.php";
                                     document.editmembr.submit();
                                     return true;
@@ -199,6 +198,11 @@
                                 } else {
                                 x.style.display = "none";y.style.display = "block";
                                 }
+                         }
+
+                         function viewcus(){
+                            document.vieww.action = "customers_view.php";
+                            document.vieww.submit();
                          }
 
                         </script>

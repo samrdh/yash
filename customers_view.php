@@ -1,5 +1,7 @@
 <?php
 include("header.php");
+$cussid= $_GET["cussid"];
+$shop_id=$_SESSION['yashshopid']
 ?>
         <div id="page-wrapper">
 
