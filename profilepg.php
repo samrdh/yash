@@ -30,9 +30,9 @@ a, a:hover {
   padding: 50px 20px;
   padding-top: 100px;
   display: flex;
-  background-image: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+  background-image: linear-gradient(-20deg, #fff 0%, #fff 100%);
   display: flex;
-  background-image: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+  background-image: linear-gradient(-20deg, #fff 0%, #fff 100%);
 }
 @media screen and (max-width: 768px) {
   .wrapper {
@@ -47,7 +47,7 @@ a, a:hover {
   min-height: 460px;
   margin: auto;
   box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
-  background: #fff;
+  background: #737373;
   border-radius: 12px;
   max-width: 700px;
   position: relative;
@@ -75,7 +75,7 @@ a, a:hover {
   overflow: hidden;
   position: relative;
   z-index: 4;
-  box-shadow: 0px 5px 50px 0px #6c44fc, 0px 0px 0px 7px rgba(107, 74, 255, 0.5);
+  box-shadow: 0px 5px 50px 0px #3399ff, 0px 0px 0px 7px rgba(107, 74, 255, 0.5);
 }
 @media screen and (max-width: 576px) {
   .profile-card__img {
@@ -100,13 +100,15 @@ a, a:hover {
 .profile-card__name {
   font-weight: 700;
   font-size: 24px;
-  color: #6944ff;
+  color: #3399ff;
+  text-shadow: 2px 2px 4px black;
   margin-bottom: 15px;
 }
 .profile-card__txt {
   font-size: 18px;
   font-weight: 500;
-  color: #324e63;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
   margin-bottom: 15px;
 }
 .profile-card__txt strong {
@@ -118,6 +120,8 @@ a, a:hover {
   align-items: center;
   font-size: 18px;
   font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
 }
 .profile-card-loc__icon {
   display: inline-flex;
@@ -144,11 +148,14 @@ a, a:hover {
 .profile-card-inf__title {
   font-weight: 700;
   font-size: 27px;
-  color: #324e63;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
 }
 .profile-card-inf__txt {
   font-weight: 500;
   margin-top: 7px;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
 }
 .profile-card-social {
   margin-top: 25px;
@@ -371,8 +378,8 @@ a, a:hover {
   <div class="profile-card__cnt js-profile-cnt">
     <div class="profile-card__name">Kapil Karekar</div>
     <div class="profile-card__txt">Geeta Automation Technologies</div>
-    <div class="profile-card__txt">Geeta-01</div>
-      <div class="profile-card__txt">GST/PAN/AADHAAR:<strong>12354897</strong></div>
+    <div class="profile-card__txt">username: Geeta-01</div>
+      <div class="profile-card__txt">GST/PAN/AADHAAR: <strong>12354897</strong></div>
     <div class="profile-card-loc">
       <span class="profile-card-loc__txt">
       <span class="profile-card-loc__icon">
@@ -404,7 +411,7 @@ a, a:hover {
       </div>
     </div>
 <br>
-    <h3>-Follow YASH on-</h3>
+    <h3 class="profile-card-inf__title">-Follow YASH on-</h3>
     <div class="profile-card-social">
       <a href="https://www.facebook.com/samrdhdesignstudio" class="profile-card-social__item facebook" target="_blank">
         <span class="icon-font">
@@ -433,7 +440,7 @@ a, a:hover {
     </div>
 
     <div class="profile-card-ctr">
-      <button class="profile-card__button button--blue js-message-btn">Contact Us</button>
+      <button class="profile-card__button button--blue js-message-btn">Message Us</button>
       <a href="profilesettings.php" class="profile-card__button button--orange">Edit profile</a>    
 
     </div>
