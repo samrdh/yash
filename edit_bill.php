@@ -96,4 +96,5 @@ $shop_id=$_SESSION['yashshopid'];
 </div>
 <?php
 include("footer.php");
+
 ?>

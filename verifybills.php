@@ -2,15 +2,27 @@
 include("header.php");
 $shop_id=$_SESSION['yashshopid'];
 $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_name,c.l_name,m.type from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id='$shop_id' AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
-         $result = mysqli_query($conn, $sql);
+$allresult = mysqli_query($conn, $sql);
 
-     /*     if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-               echo "Name: " . $row["type"]. "<br>";
-            }
-         } else {
-            echo "0 results";
-         } */
+$numrows = mysqli_num_rows($allresult);
+$rowsperpage = 10;
+$totalpages = ceil($numrows / $rowsperpage);
+if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+$currentpage = (int) $_GET['currentpage'];
+} else {
+$currentpage = 1;
+}
+
+if ($currentpage > $totalpages) {
+$currentpage = $totalpages;
+} 
+if ($currentpage < 1) {
+$currentpage = 1;
+} 
+$offset = ($currentpage - 1) * $rowsperpage;
+$finalquery = $sql . ' LIMIT '.$offset.','. $rowsperpage;
+
+$result = mysqli_query($conn, $finalquery);
 
 ?>
 <div id="page-wrapper">
@@ -29,7 +41,7 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                             </li>
                             <li class="">
                                     <i class="fa fa-edit"></i> Verify Bills
-                                </li>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -48,7 +60,7 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                   <h3 class="text-center font-weight-bold text-uppercase py-4">
                                     Please verify the bills
                                     <br>
-                                    <small><b>Date: </b>11/10/2018</small>
+                                    <small>Bill's of last <b>24hrs</b></small>
                                   </h3>
 
                                   <div class="panel-body">
@@ -83,16 +95,16 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                          ?>
                                         <tr>
                                           <td colspan="5" class="text-right">
-                                          <input type="button" class="btn btn-success" name="update" value="Edit" onClick="setUpdateAction();" /> 
-                                          <input type="button" class="btn btn-danger" name="delete" value="Delete" onClick="" /> 
-                                          <input type="button" class="btn btn-info" name="verify" value="Verify" onClick="" /> 
+                                          <!-- <input type="button" class="btn btn-success" name="update" value="Edit" onClick="setUpdateAction();" />  -->
+                                          <input type="button" class="btn btn-danger" name="delete" onClick="setDeleteAction();" value="Deny" onClick="" /> 
+                                          <input type="button" class="btn btn-info" name="verify" value="Approve" onClick="" /> 
                                         </td>
                                         </tr>
                                         </tbody>
                                       </table>
                                       </form>
                                       <script>
-                                      function setUpdateAction() {                                     
+/*                                       function setUpdateAction() {                                     
                                             var checked=false;
                                             var elements = document.getElementsByName("billss[]");
                                              	for(var i=0; i < elements.length; i++){
@@ -107,24 +119,64 @@ $sql = "select css.cus_id,b.bill_id,b.bill_no,b.amt,css.shop_id,b.verified,c.f_n
                                               alert ('You didn\'t choose any of the checkboxes!');
 	                                           return false;
                                             }
-                                       }
+                                       } */
                                        
                                       function setDeleteAction() {
-                                      if(confirm("Are you sure, want to delete these rows?")) {
-                                      document.frmbill.action = "delete_user.php";
-                                      document.frmbill.submit();
-                                       }
+                                         var checked=false;
+                                            var elements = document.getElementsByName("billss[]");
+                                             	for(var i=0; i < elements.length; i++){
+                                            		if(elements[i].checked) {
+		                                            	checked = true;
+	                                            	}
+                                              }
+                                            if (checked == true){
+                                              if(confirm("Are you sure, want to delete these rows?")) {
+                                                document.frmbill.action = "verify_deny.php";
+                                                document.frmbill.submit();
+                                             }
+                                            } else {
+                                              alert ('You didn\'t choose any of the checkboxes!');
+	                                           return false;
+                                            }
                                       }
                                       </script>
                                     </div>
 
-                                  <ul class="pagination pull-right">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">>></a></li>
-                                  </ul>
+                                   <!--  pagination  -->
+                        <div style="text-align:center">
+                            <ul class="pagination">
+                                        <?php
+                                        $range = 4;
+                                        if ($currentpage > 1) {
+                                            echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=1'><b><<</b></a></li>";
+                                            $prevpage = $currentpage - 1;
+                                            echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=$prevpage'><b><</b></a></li>";
+                                        }
+                                        else{
+                                            echo "<li class='disabled'><a ><b><<</b></a></li>";
+                                            echo "<li class=' disabled'><a ><b><</b></a></li>";
+                                        }
+                                        for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
+                                        if (($x > 0) && ($x <= $totalpages)) {
+                                            if ($x == $currentpage) {
+                                                echo "<li class='active'><a><span class='sr-only'>(current)</span><b>$x</b></a></li>";
+                                            } else {
+                                                echo "<li><a  href='{$_SERVER['PHP_SELF']}?currentpage=$x'>$x</a></li>";
+                                            }
+                                        }
+                                        } 
+                                        if ($currentpage != $totalpages) {
+                                        $nextpage = $currentpage + 1;
+                                        echo "<li ><a  href='{$_SERVER['PHP_SELF']}?currentpage=$nextpage'><b>></b></a></li>";
+                                        echo "<li ><a  href='{$_SERVER['PHP_SELF']}?currentpage=$totalpages'><b>>></b></a></li>";
+                                        }
+                                        else{
+                                            echo "<li class='disabled'><a><b>></b></a></li>";
+                                            echo "<li class='disabled'><a><b>>></b></a></li>";             
+                                        }
+                                        ?>
+                            </ul>
+                        </div>
 
 
                                   </div>
