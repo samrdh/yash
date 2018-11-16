@@ -1,5 +1,7 @@
 <?php
 include("header.php");
+$shop_id=$_SESSION['yashshopid'];
+
 ?>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
@@ -374,39 +376,76 @@ a, a:hover {
   <div class="profile-card__img">
     <img src="imgs/profile.png" alt="profile card">
   </div>
-
+  <?php
+    $sql = "SELECT * FROM `shop` WHERE shop_id='$shop_id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    ?>
   <div class="profile-card__cnt js-profile-cnt">
-    <div class="profile-card__name">Kapil Karekar</div>
-    <div class="profile-card__txt">Geeta Automation Technologies</div>
-    <div class="profile-card__txt">username: Geeta-01</div>
-      <div class="profile-card__txt">GST/PAN/AADHAAR: <strong>12354897</strong></div>
-    <div class="profile-card-loc">
+    <div class="profile-card__name" style="text-transform: capitalize;"><?php echo $row['ow_name'];?></div>
+    <div class="profile-card__txt"style="text-transform: capitalize;" ><?php echo $row['s_name'];?></div>
+    <div class="profile-card__txt">username: <?php echo $row['username'];?></div>
+    <?php
+    if(isset($row['ubi_type'])){
+     if($row['ubi_type']==0){
+     ?>
+      <div class="profile-card__txt" style="text-transform: uppercase;">GST: <strong><?php echo $row['ubi'];?></strong></div>
+      <?php
+     }elseif($row['ubi_type']==1){
+     ?>
+           <div class="profile-card__txt" style="text-transform: uppercase;">PAN: <strong><?php echo $row['ubi'];?></strong></div>
+
+     <?php
+     }else{
+     ?>
+           <div class="profile-card__txt" style="text-transform: uppercase;">AADHAAR: <strong><?php echo $row['ubi'];?></strong></div>
+     <?php
+     }}
+     ?>
+    <div class="profile-card-loc" style="text-transform: capitalize;">
       <span class="profile-card-loc__txt">
       <span class="profile-card-loc__icon">
         <svg class="icon"><use xlink:href="#icon-location"></use></svg>
-      </span>
-        Unitech City Centre Building, 502 Fifth Floor, MG Road, Panaji, Goa 403001
+      </span >
+      <?php echo $row['address'];?>
       </span>
     </div>
+    <?php
+                        $sql4 = "SELECT p.rate FROM point_perc as p WHERE p.shop_id='$shop_id' AND p.m_id=1";
+                        $result4 = mysqli_query($conn, $sql4);
+                        $row4 = mysqli_fetch_array($result4,MYSQLI_ASSOC);
 
+                        $sql5 = "SELECT p.rate FROM point_perc as p WHERE p.shop_id='$shop_id' AND p.m_id=2";
+                        $result5 = mysqli_query($conn, $sql5);
+                        $row5 = mysqli_fetch_array($result5,MYSQLI_ASSOC); 
+
+                        $sql6 = "SELECT p.rate FROM point_perc as p WHERE p.shop_id='$shop_id' AND p.m_id=3";
+                        $result6 = mysqli_query($conn, $sql6);
+                        $row6 = mysqli_fetch_array($result6,MYSQLI_ASSOC); 
+                    ?>
     <div class="profile-card-inf">
       <div class="profile-card-inf__item">
-        <div class="profile-card-inf__title">1.0</div>
+        <div class="profile-card-inf__title"><?php echo $row4['rate'];?></div>
         <div class="profile-card-inf__txt">Gold<br><small>rate per point</small></div>
       </div>
 
       <div class="profile-card-inf__item">
-        <div class="profile-card-inf__title">0.5</div>
+        <div class="profile-card-inf__title"><?php echo $row5['rate'];?></div>
         <div class="profile-card-inf__txt">Silver<br><small>rate per point</small></div>
       </div>
 
       <div class="profile-card-inf__item">
-        <div class="profile-card-inf__title">0.3</div>
+        <div class="profile-card-inf__title"><?php echo $row6['rate'];?></div>
         <div class="profile-card-inf__txt">Bronze<br><small>rate per point</small></div>
       </div>
 
       <div class="profile-card-inf__item">
-        <div class="profile-card-inf__title">15</div>
+      <?php
+        $sql2 = "select count(*) as total from cs_shop as css INNER JOIN bills as b ON b.cs_id=css.cs_id INNER JOIN customer as c ON css.cus_id=c.cus_id INNER JOIN membership as m on css.m_id=m.m_id WHERE css.shop_id='$shop_id' AND b.timestamp > DATE_SUB(NOW(),INTERVAL 1 DAY) AND b.verified=0";
+        $result2 = mysqli_query($conn, $sql2);
+        $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC); 
+      ?>
+        <div class="profile-card-inf__title"><?php echo $row2['total'];?></div>
         <div class="profile-card-inf__txt">Bills<br><small>to be verified</small></div>
       </div>
     </div>
