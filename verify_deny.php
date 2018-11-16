@@ -18,6 +18,6 @@ if(isset($_POST["billss"]) && $_POST["billss"]!="") {
 
 
 
-    if($res){header("Location:customers.php");}
+    if($res){header("Location:verifybills.php");}
 }
 ?>

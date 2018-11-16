@@ -91,15 +91,25 @@ $result = mysqli_query($conn, $finalquery);
                                           <td class="pt-3-half"><input disabled='true' value="<?php echo $row["type"]; ?>" type="text" class="form-control" ></td>
                                         </tr>
                                         <?php
-                                      }}
+                                        }
                                          ?>
                                         <tr>
                                           <td colspan="5" class="text-right">
                                           <!-- <input type="button" class="btn btn-success" name="update" value="Edit" onClick="setUpdateAction();" />  -->
                                           <input type="button" class="btn btn-danger" name="delete" onClick="setDeleteAction();" value="Deny" onClick="" /> 
-                                          <input type="button" class="btn btn-info" name="verify" value="Approve" onClick="" /> 
+                                          <input type="button" class="btn btn-info" name="verify"onClick="setVerifyAction();"value="Approve" onClick="" /> 
                                         </td>
                                         </tr>
+                                        <?php
+                                        }else{
+                                            ?>
+                                            <tr>
+
+                                            <td colspan="5" style="font-size:20px"><b>No Bills Found...!!!</b></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                         ?>
                                         </tbody>
                                       </table>
                                       </form>
@@ -130,10 +140,26 @@ $result = mysqli_query($conn, $finalquery);
 	                                            	}
                                               }
                                             if (checked == true){
-                                              if(confirm("Are you sure, want to delete these rows?")) {
+                                              if(confirm("Are you sure, This bill is !nvalid?")) {
                                                 document.frmbill.action = "verify_deny.php";
                                                 document.frmbill.submit();
                                              }
+                                            } else {
+                                              alert ('You didn\'t choose any of the checkboxes!');
+	                                           return false;
+                                            }
+                                      }
+                                      function setVerifyAction() {
+                                         var checked=false;
+                                            var elements = document.getElementsByName("billss[]");
+                                             	for(var i=0; i < elements.length; i++){
+                                            		if(elements[i].checked) {
+		                                            	checked = true;
+	                                            	}
+                                              }
+                                            if (checked == true){
+                                                document.frmbill.action = "verify_ver.php";
+                                                document.frmbill.submit();
                                             } else {
                                               alert ('You didn\'t choose any of the checkboxes!');
 	                                           return false;
