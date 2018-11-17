@@ -10,11 +10,6 @@ $time = $_SERVER['REQUEST_TIME'];
 */
 $timeout_duration = 900;
 
-/**
-* Here we look for the user's LAST_ACTIVITY timestamp. If
-* it's set and indicates our $timeout_duration has passed,
-* blow away any previous $_SESSION data and start a new one.
-*/
 if (isset($_SESSION['LAST_ACTIVITY']) && 
    ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
     session_unset();
@@ -22,10 +17,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) &&
     session_start();
 }
 
-/**
-* Finally, update LAST_ACTIVITY so that our timeout
-* is based on it and not the user's login time.
-*/
 $_SESSION['LAST_ACTIVITY'] = $time;
 
 if(!isset($_SESSION['yashshopid'])){
@@ -125,9 +116,6 @@ if(!isset($_SESSION['yashshopid'])){
                     </li>
                     <li class="btns">
                         <a href="pointsettings.php"><i class="fa fa-fw fa-bar-chart-o"></i> Point Settings</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-bug"></i> Previous code</a>
                     </li>
                </ul>
             </div>
