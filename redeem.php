@@ -53,7 +53,7 @@ if(isset($_POST['redsubmit'])){
                   ?>
                   <div class="form-group">
                       <label>Verify Code</label>
-                      <input class="form-control"  type="text" name="rcode" required>
+                      <input class="form-control"  type="text" name="rcode" required autocomplete="off">
                       <p class="help-block">Please enter the Redemption code to verify.</p>
                       <button type="submit"  name="redsubmit" class="btn btn-primary">Verify</button>
                   </div>
